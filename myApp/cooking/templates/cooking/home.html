@@ -1,0 +1,18 @@
+{% extends "cooking/base.html" %}
+{% block content %}
+    {% for post in posts %}
+<!-- This loops through the data in views.py and displays it on the page in
+blog-like form. Left this here because we could use it to display the recipes
+once the search function is implemented -->
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

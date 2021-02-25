@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
 
 urlpatterns = [
+    # this path is the administrator page, will deal with it later
     path('admin/', admin.site.urls),
+    # this path down is the empty string, so it would be our home page
+    path('', include('cooking.urls')),
 ]
