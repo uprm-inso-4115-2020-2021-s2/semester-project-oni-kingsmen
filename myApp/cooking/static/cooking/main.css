@@ -4,6 +4,17 @@ body {
   margin-top: 5rem;
 }
 
+/*
+body {
+  background-image: url("https://i.imgur.com/GBp1JFT.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+*/
+
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }
@@ -12,8 +23,12 @@ ul {
   margin: 0;
 }
 
+title {
+    font-size: 30px;
+}
+
 .bg-steel {
-  background-color: #212744;
+  background-color: #2D2D2D;
 }
 
 .site-header .navbar-nav .nav-link {

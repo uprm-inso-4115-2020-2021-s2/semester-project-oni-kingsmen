@@ -39,7 +39,7 @@ have to do it in this page -->
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{% url 'cooking-home' %}">Home</a>
-              <a class="nav-item nav-link" href="{% url 'cooking-about' %}">About</a>
+              <a class="nav-item nav-link" href="{% url 'cooking-about' %}">Add Recipe</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
@@ -53,11 +53,20 @@ have to do it in this page -->
     </header>
 
     <!-- Content inside the site -->
+    {% block title %}{% endblock %}
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
           {% block content %}{% endblock %}
         </div>
+          <!--
         <div class="col-md-4">
           <div class="content-section">
             <h3>Our Sidebar</h3>
@@ -71,6 +80,7 @@ have to do it in this page -->
             </p>
           </div>
         </div>
+        -->
       </div>
     </main>
 
