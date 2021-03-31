@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Recipe
+from .forms import RecipeForm
+from django.shortcuts import render, redirect
 
 
 # Create your views here.
@@ -18,3 +20,17 @@ def home(request):
 
 def about(request):
     return render(request, 'cooking/about.html', {'title': 'About'})
+
+
+# Create your views here.
+def addRecipe(response):
+    if response.method == "POST":
+        form = RecipeForm(response.POST)
+        if form.is_valid():
+            recipe = form.save(commit=False)
+            recipe.author_id = response.user.id
+            form.save()
+        return redirect("cooking-home")
+    else:
+        form = RecipeForm()
+    return render(response, "cooking/addRecipe.html", {"form": form})
