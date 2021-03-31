@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from register import views as v
+from cooking import views as c
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', v.register, name="register"),
+    #fix path so that it includes user_id
+    path('addRecipe/',c.addRecipe, name='addRecipe'),
     # home page
     path('', include('cooking.urls')),
 ]

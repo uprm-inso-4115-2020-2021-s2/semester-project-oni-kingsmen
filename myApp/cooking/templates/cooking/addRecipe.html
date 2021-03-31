@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "cooking/base.html" %}
+
+{% block title %}{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+{% endblock %}
+
+
