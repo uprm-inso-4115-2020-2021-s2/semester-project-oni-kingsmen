@@ -4,17 +4,6 @@ body {
   margin-top: 5rem;
 }
 
-/*
-body {
-  background-image: url("https://i.imgur.com/GBp1JFT.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #464646;
-}
-*/
-
 h1, h2, h3, h4, h5, h6 {
   color: #444444;
 }

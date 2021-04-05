@@ -5,11 +5,12 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<article class="media content-section">
 <form method="post" class="form-group">
     {% csrf_token %}
     {{ form|crispy }}
     <p>Don't have an account? Create one <a href="{% url 'register' %}">here</a></p>
     <button type="submit" class="btn btn-success">Sign In</button>
 </form>
-
+</article>
 {% endblock %}

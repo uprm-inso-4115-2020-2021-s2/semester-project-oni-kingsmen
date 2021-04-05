@@ -1,18 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+
+<link rel="stylesheet" type="text/css" href="static/cooking/reset.css">
+<link rel="stylesheet" type="text/css" href="static/cooking/style.css">
+<link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
+
 {% extends "cooking/base.html" %}
-{% block content %}
-    {% for post in posts %}
-<!-- This loops through the data in views.py and displays it on the page in
-blog-like form. Left this here because we could use it to display the recipes
-once the search function is implemented -->
-        <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.author }}</a>
-              <small class="text-muted">{{ post.date_posted | date:"F d, Y" }}</small>
-            </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content }}</p>
-          </div>
+{% block homepage %}
+<body>
+<div id="hero-image">
+    <div class="wrapper">
+        <h2><strong>All your favorite recipes</strong><br/>
+        in one place.</h2>
+        <a href="{% url 'register' %}" class="button-1">Get Started</a>
+    </div>
+</div>
+
+<div id="features">
+    <div class="wrapper">
+        <ul>
+            <li class="feature-1">
+                <h4>ADD RECIPES</h4>
+                <p>Have a recipe of your own that you'd like to share to the world? Register now to use our premium Add Recipe feature.</p>
+            </li>
+            <li class="feature-2">
+                <h4>SEARCH RECIPES</h4>
+                <p>Search through thousands of recipes submitted by other users just like you.</p>
+            </li>
+            <li class="feature-3">
+                <h4>SAVE RECIPES</h4>
+                <p>Found a recipe you liked? Saving it for later use is just one click away.</p>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+
+<div id="primary-content">
+    <div class="wrapper">
+        <article>
+            <h3>INSERT SOMETHING HERE</h3>
+            <p>Here too</p>
+            <!-- <a href="#"><img src="images/video-placeholder.jpg" alt="video placeholder" /></a> -->
         </article>
-    {% endfor %}
-{% endblock content %}
+    </div>
+</div>
+
+<footer>
+    <div class="wrapper">
+        <div id="footer-info">
+            <p>Copyright 2014 CompanyName. All rights reserved.</p>
+            <p><a href="#">Terms of Service</a> I <a href="#">Privacy</a></p>
+        </div>
+        <div id="footer-links">
+            <ul>
+                <li><h5>Company</h5></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Meet The Team</a></li>
+                <li><a href="#">What We Do</a></li>
+                <li><a href="#">Careers</a></li>
+            </ul>
+            <ul>
+                <li><h5>Company</h5></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Meet The Team</a></li>
+                <li><a href="#">What We Do</a></li>
+                <li><a href="#">Careers</a></li>
+            </ul>
+            <ul>
+                <li><h5>Company</h5></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Meet The Team</a></li>
+                <li><a href="#">What We Do</a></li>
+                <li><a href="#">Careers</a></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+</footer>
+</body>
+{% endblock %}
+</html>
