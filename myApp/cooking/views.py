@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Recipe
 from .forms import RecipeForm
 from django.shortcuts import render, redirect
+from .filters import RecipeFilter
 
 
 # Create your views here.
@@ -12,10 +13,7 @@ from django.shortcuts import render, redirect
 
 
 def home(request):
-    context = {
-        'posts': Recipe.objects.all()
-    }
-    return render(request, 'cooking/home.html', context)
+    return render(request, 'cooking/home.html')
 
 
 def about(request):
@@ -34,3 +32,12 @@ def addRecipe(response):
     else:
         form = RecipeForm()
     return render(response, "cooking/addRecipe.html", {"form": form})
+
+
+def search(request):
+    recipes = Recipe.objects.all()
+    myFilter = RecipeFilter(request.GET, queryset=recipes)
+    recipes = myFilter.qs
+    context = {'recipes': recipes, 'myFilter': myFilter}
+
+    return render(request, 'cooking/search.html', context)

@@ -1,0 +1,45 @@
+{% extends "cooking/base.html" %}
+
+{% block content %}
+
+<br>
+<div class="row">
+  <div class="col">
+    <div class="card card-body">
+      <form method="get">
+        {{ myFilter.form }}
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</div>
+<br>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Difficulty</th>
+      <th scope="col">Time to Cook</th>
+        <th scope="col">Region</th>
+        <th scope="col">Meal Type</th>
+        <th scope="col">Date Posted</th>
+        <th scope="col">Author</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for recipe in recipes %}
+    <tr>
+      <th scope="row">{{ recipe.title }}</th>
+      <td>{{ recipe.difficulty }}</td>
+      <td>{{ recipe.timeToCook }}</td>
+      <td>{{ recipe.region }}</td>
+        <td>{{ recipe.meal_type }}</td>
+        <td>{{ recipe.date_posted }}</td>
+        <td>{{ recipe.author }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
