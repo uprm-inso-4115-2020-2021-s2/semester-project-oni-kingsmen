@@ -1,8 +1,8 @@
-from django import forms
+from django.forms import ModelForm
 from .models import Recipe
 
 
-class RecipeForm(forms.ModelForm):
+class RecipeForm(ModelForm):
     class Meta:
         model = Recipe
-        fields = ["title", "content"]
+        fields = ['title', 'difficulty', 'time_to_cook', 'region', 'meal_type', 'content']

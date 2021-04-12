@@ -4,6 +4,7 @@ from .models import Recipe
 from .forms import RecipeForm
 from django.shortcuts import render, redirect
 from .filters import RecipeFilter
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -20,18 +21,23 @@ def about(request):
     return render(request, 'cooking/about.html', {'title': 'About'})
 
 
-# Create your views here.
-def addRecipe(response):
-    if response.method == "POST":
-        form = RecipeForm(response.POST)
+def addRecipe(request):
+    if request.method == "POST":
+        form = RecipeForm(request.POST)
         if form.is_valid():
             recipe = form.save(commit=False)
-            recipe.author_id = response.user.id
+            recipe.author_id = request.user.id
             form.save()
         return redirect("cooking-home")
     else:
         form = RecipeForm()
-    return render(response, "cooking/addRecipe.html", {"form": form})
+    return render(request, "cooking/addRecipe.html", {"form": form})
+
+
+def myRecipes(request):
+    my_recipes = Recipe.objects.filter(author=request.user)
+    context = {'my_recipes': my_recipes}
+    return render(request, 'cooking/myRecipes.html', context)
 
 
 def search(request):

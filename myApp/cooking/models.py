@@ -38,7 +38,7 @@ class Recipe(models.Model):
         choices=DIFFICULTY,
         null=True
     )
-    timeToCook = models.CharField(
+    time_to_cook = models.CharField(
         max_length=100,
         choices=TIME_TO_COOK,
         null=True
