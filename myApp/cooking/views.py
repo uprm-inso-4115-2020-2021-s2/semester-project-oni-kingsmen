@@ -55,7 +55,6 @@ def viewRecipe(request, pk):
     context = {'recipe': recipe}
 
     if request.method == "POST":
-        print("This line was compiled")
         recipe.is_saved = True
         recipe.save()
     else:

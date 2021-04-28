@@ -17,6 +17,7 @@
   </tbody>
 </table>
 
+<p><b>Submitted by:</b> {{ recipe.author }}</p>
  <form method="POST" class="form-group">
         {% csrf_token %}
         <button type="submit" class="btn btn-success">Save</button>
