@@ -17,6 +17,9 @@
   </tbody>
 </table>
 
-<button type="submit" class="btn btn-success">Save</button>
+ <form method="POST" class="form-group">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
 
 {% endblock %}

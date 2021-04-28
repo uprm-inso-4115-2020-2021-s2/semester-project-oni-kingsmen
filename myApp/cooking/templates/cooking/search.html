@@ -39,8 +39,6 @@
         <td>{{ recipe.meal_type }}</td>
         <td>{{ recipe.date_posted }}</td>
         <td>{{ recipe.author }}</td>
-      {% csrf_token %}
-      <td><button type="submit" class="btn btn-success">Save</button></td>
   </form>
     </tr>
   {% endfor %}

@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 from .filters import RecipeFilter
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 
 # Create your views here.
@@ -36,7 +37,7 @@ def addRecipe(request):
 
 
 def myRecipes(request):
-    my_recipes = Recipe.objects.filter(author=request.user)
+    my_recipes = Recipe.objects.filter(Q(author=request.user) | Q(is_saved=True))
     context = {'my_recipes': my_recipes}
     return render(request, 'cooking/myRecipes.html', context)
 
@@ -52,4 +53,12 @@ def search(request):
 def viewRecipe(request, pk):
     recipe = Recipe.objects.get(id=pk)
     context = {'recipe': recipe}
+
+    if request.method == "POST":
+        print("This line was compiled")
+        recipe.is_saved = True
+        recipe.save()
+    else:
+        form = RecipeForm()
+
     return render(request, 'cooking/viewRecipe.html', context)

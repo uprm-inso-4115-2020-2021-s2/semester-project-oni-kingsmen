@@ -56,6 +56,7 @@ class Recipe(models.Model):
     content = models.TextField(null=True)
     date_posted = models.DateTimeField(default=timezone.now, null=True)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    is_saved = models.BooleanField(default=False)
 
     # This method enables the data to be shown by recipe title
     def __str__(self):
