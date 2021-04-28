@@ -25,18 +25,23 @@
         <th scope="col">Meal Type</th>
         <th scope="col">Date Posted</th>
         <th scope="col">Author</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
   {% for recipe in recipes %}
     <tr>
-      <th scope="row">{{ recipe.title }}</th>
+      <form method="POST" class="form-group">
+      <th scope="row"><a href="{% url 'viewRecipe' recipe.id %}">{{ recipe.title }}</a></th>
       <td>{{ recipe.difficulty }}</td>
       <td>{{ recipe.time_to_cook }}</td>
       <td>{{ recipe.region }}</td>
         <td>{{ recipe.meal_type }}</td>
         <td>{{ recipe.date_posted }}</td>
         <td>{{ recipe.author }}</td>
+      {% csrf_token %}
+      <td><button type="submit" class="btn btn-success">Save</button></td>
+  </form>
     </tr>
   {% endfor %}
   </tbody>

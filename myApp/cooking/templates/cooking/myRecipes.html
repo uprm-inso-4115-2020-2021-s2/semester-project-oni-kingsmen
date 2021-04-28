@@ -17,7 +17,7 @@
   <tbody>
   {% for recipe in my_recipes %}
     <tr>
-      <th scope="row">{{ recipe.title }}</th>
+      <th scope="row"><a href="{% url 'viewRecipe' recipe.id %}">{{ recipe.title }}</a></th>
       <td>{{ recipe.difficulty }}</td>
       <td>{{ recipe.time_to_cook }}</td>
       <td>{{ recipe.region }}</td>

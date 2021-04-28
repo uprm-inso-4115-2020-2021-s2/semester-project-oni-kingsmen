@@ -4,6 +4,7 @@ from .models import Recipe
 from .forms import RecipeForm
 from django.shortcuts import render, redirect
 from .filters import RecipeFilter
+from django.contrib import messages
 from django.contrib.auth.models import User
 
 
@@ -45,5 +46,10 @@ def search(request):
     myFilter = RecipeFilter(request.GET, queryset=recipes)
     recipes = myFilter.qs
     context = {'recipes': recipes, 'myFilter': myFilter}
-
     return render(request, 'cooking/search.html', context)
+
+
+def viewRecipe(request, pk):
+    recipe = Recipe.objects.get(id=pk)
+    context = {'recipe': recipe}
+    return render(request, 'cooking/viewRecipe.html', context)

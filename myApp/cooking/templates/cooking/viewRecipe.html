@@ -1,0 +1,22 @@
+{% extends "cooking/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">{{ recipe.title }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ recipe.content }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<button type="submit" class="btn btn-success">Save</button>
+
+{% endblock %}

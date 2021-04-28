@@ -7,6 +7,7 @@ urlpatterns = [
     path('addRecipe/', views.addRecipe, name='addRecipe'),
     path('search/', views.search, name='cooking-search'),
     path('myRecipes/', views.myRecipes, name='cooking-myRecipes'),
+    path('viewRecipe/<str:pk>/', views.viewRecipe, name='viewRecipe'),
 ]
 
 
